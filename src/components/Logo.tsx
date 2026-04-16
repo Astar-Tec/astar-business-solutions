@@ -69,7 +69,7 @@ export function AstarMark({ className = "" }: { className?: string }) {
         strokeWidth="0.5"
       />
 
-      {/* Path edges of the "A" — drawn as routed graph edges */}
+      {/* Path edges of the "A" — shifted left to make room for star superscript */}
       <g
         className="stroke-background"
         strokeWidth="3.2"
@@ -78,43 +78,44 @@ export function AstarMark({ className = "" }: { className?: string }) {
         fill="none"
       >
         {/* Left edge: foot node → apex node */}
-        <line x1="18" y1="48" x2="32" y2="18" />
+        <line x1="13" y1="48" x2="26" y2="20" />
         {/* Right edge: apex node → foot node */}
-        <line x1="32" y1="18" x2="46" y2="48" />
+        <line x1="26" y1="20" x2="39" y2="48" />
         {/* Crossbar — heuristic line */}
-        <line x1="23.5" y1="36" x2="40.5" y2="36" />
+        <line x1="18.5" y1="37" x2="33.5" y2="37" />
       </g>
 
       {/* Graph nodes — small precise squares at the two feet */}
       <g className="fill-background">
-        <rect x="15.5" y="45.5" width="5" height="5" />
-        <rect x="43.5" y="45.5" width="5" height="5" />
+        <rect x="10.5" y="45.5" width="5" height="5" />
+        <rect x="36.5" y="45.5" width="5" height="5" />
       </g>
 
-      {/* Apex / goal node — the A* star, prominent and gold */}
-      <g transform="translate(32 18)">
+      {/* The A* star — placed as a SUPERSCRIPT/POWER, top-right of the A.
+          Same horizontal level as the apex of the A, mathematical exponent style. */}
+      <g transform="translate(46 20)">
         {/* Soft glow halo behind the star */}
-        <circle cx="0" cy="0" r="11" fill="url(#astar-glow)" />
+        <circle cx="0" cy="0" r="9" fill="url(#astar-glow)" />
         {/* Outer halo ring */}
         <circle
           cx="0"
           cy="0"
-          r="9.5"
+          r="7.5"
           fill="none"
           stroke="url(#astar-gold)"
-          strokeWidth="0.7"
+          strokeWidth="0.6"
           opacity="0.7"
         />
-        {/* The 4-point star — larger, sharper, unmistakable */}
+        {/* The 4-point star — sharp, mathematical exponent */}
         <path
-          d="M0 -10.5 L2.2 -2.2 L10.5 0 L2.2 2.2 L0 10.5 L-2.2 2.2 L-10.5 0 L-2.2 -2.2 Z"
+          d="M0 -8.5 L1.8 -1.8 L8.5 0 L1.8 1.8 L0 8.5 L-1.8 1.8 L-8.5 0 L-1.8 -1.8 Z"
           fill="url(#astar-gold)"
           stroke="#92400E"
           strokeWidth="0.3"
           strokeLinejoin="miter"
         />
         {/* Center node dot */}
-        <circle cx="0" cy="0" r="1.4" className="fill-foreground" />
+        <circle cx="0" cy="0" r="1.2" className="fill-foreground" />
       </g>
     </svg>
   );
