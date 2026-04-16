@@ -2,14 +2,19 @@ import { Link } from "@tanstack/react-router";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link to="/" className={`flex items-center gap-3 group ${className}`} aria-label="Astar Technologies — Home">
+    <Link
+      to="/"
+      className={`flex items-center gap-3 group ${className}`}
+      aria-label="Astar Technologies — Home"
+    >
       <AstarMark className="h-9 w-9 transition-transform duration-300 group-hover:scale-[1.04]" />
       <div className="flex flex-col leading-none">
-        <span className="text-[15px] font-semibold tracking-tight text-foreground">
-          Astar<span className="text-gold"> </span>Technologies
+        <span className="text-[15px] font-semibold tracking-[-0.01em] text-foreground">
+          ASTAR<span className="text-muted-foreground font-light"> </span>
+          <span className="font-light text-muted-foreground">TECHNOLOGIES</span>
         </span>
-        <span className="mt-1 text-[9.5px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
-          Engineered in Africa
+        <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.28em] text-muted-foreground/80">
+          Pty Ltd · Engineered Systems
         </span>
       </div>
     </Link>
@@ -17,11 +22,17 @@ export function Logo({ className = "" }: { className?: string }) {
 }
 
 /**
- * Astar mark — a geometric monogram.
- * Concept: a precision-engineered "A" formed by two angled strokes,
- * crowned with a four-point compass star (the A* / north-star reference).
- * Rendered with a gold gradient, hairline detailing and a soft inner ring
- * to suggest a struck/embossed corporate seal.
+ * Astar mark — algorithmic monogram.
+ *
+ * Concept: The "A" is constructed as a pathfinding graph.
+ * - Three nodes form the vertices of the A (two feet + apex)
+ * - Edges connect them like a routed path
+ * - A precision 4-point star sits AT the apex node — not decorative,
+ *   it IS the destination/goal node of the A* search
+ * - A faint crossbar suggests the algorithmic heuristic line
+ *
+ * Rendered monochrome (deep charcoal) with a single electric accent
+ * on the star/goal node. Works in both light and dark modes.
  */
 export function AstarMark({ className = "" }: { className?: string }) {
   return (
@@ -30,69 +41,73 @@ export function AstarMark({ className = "" }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       role="img"
-      aria-hidden="true"
+      aria-label="Astar Technologies"
     >
-      <defs>
-        <linearGradient id="astar-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="hsl(45 90% 72%)" />
-          <stop offset="50%" stopColor="hsl(42 78% 56%)" />
-          <stop offset="100%" stopColor="hsl(36 70% 42%)" />
-        </linearGradient>
-        <linearGradient id="astar-sheen" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="hsl(48 100% 88%)" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="hsl(40 80% 50%)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
+      {/* Container — squared with a hairline radius for a system/seal feel */}
+      <rect
+        x="1"
+        y="1"
+        width="62"
+        height="62"
+        rx="8"
+        className="fill-foreground"
+      />
 
-      {/* Outer rounded square seal */}
+      {/* Inner hairline frame — engineered/CAD feel */}
       <rect
-        x="2"
-        y="2"
-        width="60"
-        height="60"
-        rx="14"
-        fill="url(#astar-gold)"
-      />
-      {/* Subtle top sheen for premium feel */}
-      <rect
-        x="2"
-        y="2"
-        width="60"
-        height="60"
-        rx="14"
-        fill="url(#astar-sheen)"
-        opacity="0.35"
-      />
-      {/* Inner hairline ring (engraved seal) */}
-      <rect
-        x="6"
-        y="6"
-        width="52"
-        height="52"
-        rx="11"
+        x="5"
+        y="5"
+        width="54"
+        height="54"
+        rx="5"
         fill="none"
-        stroke="hsl(36 60% 28%)"
-        strokeOpacity="0.45"
-        strokeWidth="0.75"
+        className="stroke-background/15"
+        strokeWidth="0.5"
       />
 
-      {/* Geometric "A" — two strokes forming a chevron, with crossbar */}
-      <g fill="hsl(220 35% 8%)">
-        {/* Left leg */}
-        <path d="M20 48 L30.2 16 L33.8 16 L23.6 48 Z" />
-        {/* Right leg */}
-        <path d="M30.2 16 L33.8 16 L44 48 L40.4 48 Z" />
-        {/* Crossbar */}
-        <rect x="25.5" y="33" width="13" height="3.4" rx="0.6" />
+      {/* Path edges of the "A" — drawn as routed graph edges */}
+      <g
+        className="stroke-background"
+        strokeWidth="3.2"
+        strokeLinecap="square"
+        strokeLinejoin="miter"
+        fill="none"
+      >
+        {/* Left edge: foot node → apex node */}
+        <line x1="16" y1="48" x2="32" y2="14" />
+        {/* Right edge: apex node → foot node */}
+        <line x1="32" y1="14" x2="48" y2="48" />
+        {/* Crossbar — heuristic line */}
+        <line x1="22.5" y1="35" x2="41.5" y2="35" />
       </g>
 
-      {/* Four-point compass star — the A* reference, sitting at the apex */}
-      <g transform="translate(32 13)">
-        <path
-          d="M0 -7 L1.6 -1.6 L7 0 L1.6 1.6 L0 7 L-1.6 1.6 L-7 0 L-1.6 -1.6 Z"
-          fill="hsl(220 35% 8%)"
+      {/* Graph nodes — small precise squares at the two feet */}
+      <g className="fill-background">
+        <rect x="13.5" y="45.5" width="5" height="5" />
+        <rect x="45.5" y="45.5" width="5" height="5" />
+      </g>
+
+      {/* Apex / goal node — the A* star, integrated as the structural vertex.
+          4-point compass star = directionality, pathfinding, the "goal". */}
+      <g transform="translate(32 14)">
+        {/* Subtle halo ring — signal/optimization */}
+        <circle
+          cx="0"
+          cy="0"
+          r="6.5"
+          fill="none"
+          className="stroke-[hsl(var(--accent-ring,45_90%_60%))]"
+          stroke="hsl(45 92% 58%)"
+          strokeWidth="0.6"
+          opacity="0.55"
         />
-        <circle cx="0" cy="0" r="1.1" fill="url(#astar-gold)" />
+        {/* The 4-point star — sharp, mathematical, not decorative */}
+        <path
+          d="M0 -7 L1.4 -1.4 L7 0 L1.4 1.4 L0 7 L-1.4 1.4 L-7 0 L-1.4 -1.4 Z"
+          fill="hsl(45 92% 58%)"
+        />
+        {/* Center node dot */}
+        <circle cx="0" cy="0" r="1.1" className="fill-foreground" />
       </g>
     </svg>
   );
