@@ -31,8 +31,8 @@ const cases = [
     solution:
       "Production-ready AI system delivering crop guidance in local languages, including Sesotho — built offline-first for real users.",
     metrics: [
-      { value: "100+", label: "Farmers reached" },
-      { value: "94%", label: "Adoption rate" },
+      { value: "Live", label: "Production system" },
+      { value: "Sesotho", label: "Local language AI" },
       { value: "UNDP", label: "Finalist" },
     ],
     accent: "from-emerald-500/20 to-emerald-500/0",
