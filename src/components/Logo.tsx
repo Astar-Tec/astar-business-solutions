@@ -43,23 +43,27 @@ export function AstarMark({ className = "" }: { className?: string }) {
       role="img"
       aria-label="Astar Technologies"
     >
-      {/* Container — squared with a hairline radius for a system/seal feel */}
-      <rect
-        x="1"
-        y="1"
-        width="62"
-        height="62"
-        rx="8"
-        className="fill-foreground"
-      />
+      {/* Gradient + glow definitions */}
+      <defs>
+        <linearGradient id="astar-gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FCD34D" />
+          <stop offset="55%" stopColor="#F5B400" />
+          <stop offset="100%" stopColor="#D97706" />
+        </linearGradient>
+        <radialGradient id="astar-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FCD34D" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#FCD34D" stopOpacity="0" />
+        </radialGradient>
+      </defs>
 
-      {/* Inner hairline frame — engineered/CAD feel */}
-      <rect
-        x="5"
-        y="5"
-        width="54"
-        height="54"
-        rx="5"
+      {/* Container — circular seal */}
+      <circle cx="32" cy="32" r="31" className="fill-foreground" />
+
+      {/* Inner hairline ring — engineered/CAD feel */}
+      <circle
+        cx="32"
+        cy="32"
+        r="27"
         fill="none"
         className="stroke-background/15"
         strokeWidth="0.5"
@@ -74,46 +78,43 @@ export function AstarMark({ className = "" }: { className?: string }) {
         fill="none"
       >
         {/* Left edge: foot node → apex node */}
-        <line x1="16" y1="48" x2="32" y2="14" />
+        <line x1="18" y1="48" x2="32" y2="18" />
         {/* Right edge: apex node → foot node */}
-        <line x1="32" y1="14" x2="48" y2="48" />
+        <line x1="32" y1="18" x2="46" y2="48" />
         {/* Crossbar — heuristic line */}
-        <line x1="22.5" y1="35" x2="41.5" y2="35" />
+        <line x1="23.5" y1="36" x2="40.5" y2="36" />
       </g>
 
       {/* Graph nodes — small precise squares at the two feet */}
       <g className="fill-background">
-        <rect x="13.5" y="45.5" width="5" height="5" />
-        <rect x="45.5" y="45.5" width="5" height="5" />
+        <rect x="15.5" y="45.5" width="5" height="5" />
+        <rect x="43.5" y="45.5" width="5" height="5" />
       </g>
 
-      {/* Apex / goal node — the A* star, integrated as the structural vertex.
-          4-point compass star = directionality, pathfinding, the "goal". */}
-      <g transform="translate(32 14)">
-        {/* Gradient definition for the green accent */}
-        <defs>
-          <linearGradient id="astar-green" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#34D399" />
-            <stop offset="100%" stopColor="#10B981" />
-          </linearGradient>
-        </defs>
-        {/* Subtle halo ring — signal/optimization */}
+      {/* Apex / goal node — the A* star, prominent and gold */}
+      <g transform="translate(32 18)">
+        {/* Soft glow halo behind the star */}
+        <circle cx="0" cy="0" r="11" fill="url(#astar-glow)" />
+        {/* Outer halo ring */}
         <circle
           cx="0"
           cy="0"
-          r="6.5"
+          r="9.5"
           fill="none"
-          stroke="url(#astar-green)"
-          strokeWidth="0.6"
-          opacity="0.6"
+          stroke="url(#astar-gold)"
+          strokeWidth="0.7"
+          opacity="0.7"
         />
-        {/* The 4-point star — sharp, mathematical, not decorative */}
+        {/* The 4-point star — larger, sharper, unmistakable */}
         <path
-          d="M0 -7 L1.4 -1.4 L7 0 L1.4 1.4 L0 7 L-1.4 1.4 L-7 0 L-1.4 -1.4 Z"
-          fill="url(#astar-green)"
+          d="M0 -10.5 L2.2 -2.2 L10.5 0 L2.2 2.2 L0 10.5 L-2.2 2.2 L-10.5 0 L-2.2 -2.2 Z"
+          fill="url(#astar-gold)"
+          stroke="#92400E"
+          strokeWidth="0.3"
+          strokeLinejoin="miter"
         />
         {/* Center node dot */}
-        <circle cx="0" cy="0" r="1.1" className="fill-foreground" />
+        <circle cx="0" cy="0" r="1.4" className="fill-foreground" />
       </g>
     </svg>
   );
