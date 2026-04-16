@@ -2,8 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "../ui/button";
-
-const WHATSAPP_NUMBER = "27000000000";
+import { whatsappLink } from "../../lib/contact";
 
 export function CTA() {
   return (
@@ -39,7 +38,9 @@ export function CTA() {
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-surface/60">
               <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                href={whatsappLink(
+                  "Hi Astar Technologies, I'd like to discuss a project."
+                )}
                 target="_blank"
                 rel="noreferrer"
               >

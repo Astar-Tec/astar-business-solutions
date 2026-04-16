@@ -9,13 +9,13 @@ export function TrustBar() {
     },
     {
       icon: Globe2,
-      title: "Serving South Africa & Lesotho",
-      sub: "Cross-border delivery",
+      title: "Based in Ficksburg, Free State",
+      sub: "Serving South Africa, Lesotho & beyond",
     },
     {
       icon: BadgeCheck,
       title: "Trusted by real businesses",
-      sub: "Live, deployed solutions",
+      sub: "Live, deployed client systems",
     },
   ];
 

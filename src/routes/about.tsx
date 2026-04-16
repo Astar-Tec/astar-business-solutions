@@ -50,10 +50,18 @@ function AboutPage() {
           className="mx-auto mt-16 max-w-3xl space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg"
         >
           <p>
-            We are software engineers and problem solvers. Our work spans
-            agricultural AI, hospitality systems, telecom IoT infrastructure,
-            and business automation — delivered to organizations across South
-            Africa and Lesotho.
+            Based in Ficksburg, Free State, we are software engineers and
+            problem solvers. Our work spans agricultural AI, hospitality
+            systems, telecom IoT infrastructure, and business automation —
+            delivered to organizations across South Africa, Lesotho and beyond.
+          </p>
+          <p>
+            Our live, in-production work includes the{" "}
+            <a href="http://www.greenacorn.co.za" target="_blank" rel="noreferrer" className="text-gold hover:underline">Green Acorn Guest House</a>{" "}
+            website and booking system, the{" "}
+            <a href="https://agrosense-client-kappa.vercel.app/" target="_blank" rel="noreferrer" className="text-gold hover:underline">AgroSense</a>{" "}
+            agricultural AI platform, and a{" "}
+            <a href="https://telecom-insight-analytics.vercel.app/" target="_blank" rel="noreferrer" className="text-gold hover:underline">Telecom & IoT analytics platform</a>.
           </p>
           <p>
             Every solution we build starts with one question: <span className="text-foreground font-medium">what outcome does the business need?</span> We work backward from there — choosing technology that fits the problem, not the other way around.
