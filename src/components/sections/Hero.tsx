@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Check } from "lucide-react";
 import { Button } from "../ui/button";
 
 export function Hero() {
@@ -56,28 +56,56 @@ export function Hero() {
           </div>
         </motion.div>
 
-        {/* Stats */}
+        {/* Real client proof */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-4"
+          className="mx-auto mt-20 max-w-5xl"
         >
-          {[
-            { value: "100+", label: "Farmers reached" },
-            { value: "94%", label: "AgroSense adoption" },
-            { value: "2", label: "Countries served" },
-            { value: "UNDP", label: "Finalist recognition" },
-          ].map((s) => (
-            <div key={s.label} className="bg-surface px-6 py-6 text-center">
-              <div className="text-2xl font-semibold text-gradient-gold md:text-3xl">
-                {s.value}
+          <div className="rounded-2xl border border-border bg-surface/60 p-6 backdrop-blur md:p-8">
+            <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-7 items-center rounded-full border border-gold/30 bg-gold/5 px-2.5 text-[10px] font-medium uppercase tracking-wider text-gold">
+                    Live Client Project
+                  </span>
+                  <span className="text-xs text-muted-foreground">Real Work. Real Clients.</span>
+                </div>
+                <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
+                  Green Acorn Guest House
+                </h3>
+                <p className="mt-1 max-w-xl text-sm text-muted-foreground">
+                  Not a demo — a live business powered by systems we built and manage.
+                </p>
               </div>
-              <div className="mt-1 text-xs text-muted-foreground md:text-sm">
-                {s.label}
-              </div>
+              <a
+                href="http://www.greenacorn.co.za"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-xs font-medium text-gold transition-colors hover:bg-gold/20"
+              >
+                Visit greenacorn.co.za <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </div>
-          ))}
+
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                "Live Client Website",
+                "Booking System Implemented",
+                "Digital Presence Built from Scratch",
+                "Ongoing Marketing & Support",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-2 rounded-xl border border-border bg-background/40 px-4 py-3"
+                >
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <span className="text-sm text-foreground/90">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
