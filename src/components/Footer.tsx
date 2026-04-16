@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Download, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "./Logo";
 import { CONTACT, whatsappLink } from "../lib/contact";
 
@@ -71,7 +71,18 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Astar Technologies (Pty) Ltd. All rights reserved.</p>
-          <p>Built in Africa. For the world.</p>
+          <div className="flex items-center gap-4">
+            <a
+              href="/astar-logo.svg"
+              download="astar-technologies-logo.svg"
+              className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
+              aria-label="Download Astar Technologies logo"
+            >
+              <Download className="h-3.5 w-3.5" />
+              <span>Download logo</span>
+            </a>
+            <p>Built in Africa. For the world.</p>
+          </div>
         </div>
       </div>
     </footer>

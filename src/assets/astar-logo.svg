@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Astar Technologies">
+  <title>Astar Technologies</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0E1A14"/>
+      <stop offset="100%" stop-color="#0A0F0C"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Container seal -->
+  <rect x="8" y="8" width="496" height="496" rx="64" fill="url(#bg)"/>
+  <rect x="40" y="40" width="432" height="432" rx="44" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="2"/>
+
+  <!-- A graph edges -->
+  <g stroke="#FFFFFF" stroke-width="26" stroke-linecap="square" stroke-linejoin="miter" fill="none">
+    <line x1="128" y1="384" x2="256" y2="112"/>
+    <line x1="256" y1="112" x2="384" y2="384"/>
+    <line x1="180" y1="280" x2="332" y2="280"/>
+  </g>
+
+  <!-- Foot nodes -->
+  <g fill="#FFFFFF">
+    <rect x="108" y="364" width="40" height="40"/>
+    <rect x="364" y="364" width="40" height="40"/>
+  </g>
+
+  <!-- Goal node: A* star in green -->
+  <g transform="translate(256 112)">
+    <circle r="58" fill="none" stroke="url(#green)" stroke-width="4" opacity="0.55"/>
+    <path d="M0 -56 L11.2 -11.2 L56 0 L11.2 11.2 L0 56 L-11.2 11.2 L-56 0 L-11.2 -11.2 Z" fill="url(#green)"/>
+    <circle r="9" fill="#0E1A14"/>
+  </g>
+</svg>

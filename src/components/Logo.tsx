@@ -90,21 +90,27 @@ export function AstarMark({ className = "" }: { className?: string }) {
       {/* Apex / goal node — the A* star, integrated as the structural vertex.
           4-point compass star = directionality, pathfinding, the "goal". */}
       <g transform="translate(32 14)">
+        {/* Gradient definition for the green accent */}
+        <defs>
+          <linearGradient id="astar-green" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#34D399" />
+            <stop offset="100%" stopColor="#10B981" />
+          </linearGradient>
+        </defs>
         {/* Subtle halo ring — signal/optimization */}
         <circle
           cx="0"
           cy="0"
           r="6.5"
           fill="none"
-          className="stroke-[hsl(var(--accent-ring,45_90%_60%))]"
-          stroke="hsl(45 92% 58%)"
+          stroke="url(#astar-green)"
           strokeWidth="0.6"
-          opacity="0.55"
+          opacity="0.6"
         />
         {/* The 4-point star — sharp, mathematical, not decorative */}
         <path
           d="M0 -7 L1.4 -1.4 L7 0 L1.4 1.4 L0 7 L-1.4 1.4 L-7 0 L-1.4 -1.4 Z"
-          fill="hsl(45 92% 58%)"
+          fill="url(#astar-green)"
         />
         {/* Center node dot */}
         <circle cx="0" cy="0" r="1.1" className="fill-foreground" />
