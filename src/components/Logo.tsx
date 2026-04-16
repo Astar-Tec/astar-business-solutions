@@ -116,9 +116,6 @@ export function AstarMark({ className = "" }: { className?: string }) {
         {/* Center node dot */}
         <circle cx="0" cy="0" r="1.4" className="fill-foreground" />
       </g>
-        {/* Center node dot */}
-        <circle cx="0" cy="0" r="1.1" className="fill-foreground" />
-      </g>
     </svg>
   );
 }
