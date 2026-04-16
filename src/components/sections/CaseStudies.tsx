@@ -1,13 +1,35 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, TrendingUp } from "lucide-react";
+import { ArrowUpRight, ExternalLink, TrendingUp } from "lucide-react";
 import { Section, SectionHeader } from "../Section";
 
 const cases = [
   {
-    name: "AgroSense",
+    name: "Green Acorn Guest House",
+    tagline: "Live client project",
+    badge: "Live Client Project",
+    url: "http://www.greenacorn.co.za",
+    urlLabel: "www.greenacorn.co.za",
+    problem:
+      "Zero digital presence, bookings handled manually, customers couldn't find them online.",
+    solution:
+      "Modern website, integrated booking system, and a digital marketing foundation — fully owned by the client.",
+    metrics: [
+      { value: "↑", label: "Online bookings" },
+      { value: "24/7", label: "Availability" },
+      { value: "Live", label: "In production" },
+    ],
+    accent: "from-amber-500/20 to-amber-500/0",
+  },
+  {
+    name: "AgroSense Platform",
     tagline: "AI-powered agricultural intelligence",
-    problem: "Smallholder farmers lacked data-driven tools to optimize yields.",
-    solution: "An AI system delivering crop guidance in local languages, including Sesotho — built offline-first.",
+    badge: "Production System",
+    url: "https://agrosense-client-kappa.vercel.app/",
+    urlLabel: "agrosense-client-kappa.vercel.app",
+    problem:
+      "Smallholder farmers lacked data-driven tools to optimize yields in their own language.",
+    solution:
+      "Production-ready AI system delivering crop guidance in local languages, including Sesotho — built offline-first for real users.",
     metrics: [
       { value: "100+", label: "Farmers reached" },
       { value: "94%", label: "Adoption rate" },
@@ -16,25 +38,18 @@ const cases = [
     accent: "from-emerald-500/20 to-emerald-500/0",
   },
   {
-    name: "Green Acorn Guest House",
-    tagline: "From invisible to fully booked",
-    problem: "Zero digital presence, bookings handled manually, customers couldn't find them online.",
-    solution: "Modern website, integrated booking system, and a digital marketing foundation.",
+    name: "Telecom & IoT Analytics Platform",
+    tagline: "Enterprise-grade data analytics",
+    badge: "Enterprise System",
+    url: "https://telecom-insight-analytics.vercel.app/",
+    urlLabel: "telecom-insight-analytics.vercel.app",
+    problem:
+      "Manual monitoring and disconnected systems across remote telecom sites with no real-time visibility.",
+    solution:
+      "Enterprise-style analytics platform with real-time dashboards, telemetry, and alerts — built on AWS IoT Core.",
     metrics: [
-      { value: "↑", label: "Online bookings" },
-      { value: "24/7", label: "Availability" },
-      { value: "100%", label: "Owner control" },
-    ],
-    accent: "from-amber-500/20 to-amber-500/0",
-  },
-  {
-    name: "Telecom & IoT Deployment",
-    tagline: "Connected infrastructure at scale",
-    problem: "Manual monitoring and disconnected systems across remote sites.",
-    solution: "AWS IoT-based remote monitoring with real-time dashboards and alerts.",
-    metrics: [
+      { value: "Real-time", label: "Dashboards" },
       { value: "AWS", label: "IoT Core" },
-      { value: "Real-time", label: "Telemetry" },
       { value: "Remote", label: "Deployment" },
     ],
     accent: "from-blue-500/20 to-blue-500/0",
@@ -47,7 +62,7 @@ export function CaseStudies() {
       <SectionHeader
         eyebrow="Proof, not promises"
         title={<>Real businesses. <span className="text-gradient-gold">Real outcomes.</span></>}
-        description="We've delivered live systems that move metrics — from farms to guest houses to telecom infrastructure."
+        description="Live, deployed systems — not slides. Click through to see them running in production."
       />
 
       <div className="mt-16 space-y-6">
@@ -64,9 +79,9 @@ export function CaseStudies() {
 
             <div className="relative grid gap-10 md:grid-cols-5">
               <div className="md:col-span-3">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <span className="inline-flex h-8 items-center rounded-full border border-gold/30 bg-gold/5 px-3 text-xs font-medium uppercase tracking-wider text-gold">
-                    Case Study
+                    {c.badge}
                   </span>
                   <span className="text-xs text-muted-foreground">{c.tagline}</span>
                 </div>
@@ -74,6 +89,16 @@ export function CaseStudies() {
                 <h3 className="mt-4 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                   {c.name}
                 </h3>
+
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-2 inline-flex items-center gap-1.5 text-sm text-gold hover:underline"
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  {c.urlLabel}
+                </a>
 
                 <div className="mt-6 space-y-4 text-sm md:text-base">
                   <div>
@@ -85,6 +110,15 @@ export function CaseStudies() {
                     <p className="mt-1.5 text-foreground/85 leading-relaxed">{c.solution}</p>
                   </div>
                 </div>
+
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-4 py-2 text-xs font-medium text-foreground transition-colors hover:border-gold/40 hover:text-gold"
+                >
+                  Visit live site <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
               </div>
 
               <div className="md:col-span-2">

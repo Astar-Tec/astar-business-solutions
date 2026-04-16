@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Linkedin, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Section, SectionHeader } from "../components/Section";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -10,8 +10,7 @@ import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "../components/ui/sonner";
-
-const WHATSAPP_NUMBER = "27000000000";
+import { CONTACT, whatsappLink } from "../lib/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -52,12 +51,9 @@ function ContactPage() {
       return;
     }
     setSubmitting(true);
-    // Compose WhatsApp message as primary delivery channel
-    const text = encodeURIComponent(
-      `New project inquiry%0A%0AName: ${result.data.name}%0AEmail: ${result.data.email}%0ACompany: ${result.data.company ?? "-"}%0A%0A${result.data.message}`
-    );
+    const text = `New project inquiry\n\nName: ${result.data.name}\nEmail: ${result.data.email}\nCompany: ${result.data.company ?? "-"}\n\n${result.data.message}`;
     setTimeout(() => {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+      window.open(whatsappLink(text), "_blank");
       toast.success("Opening WhatsApp to send your message…");
       form.reset();
       setSubmitting(false);
@@ -79,22 +75,30 @@ function ContactPage() {
           <div className="lg:col-span-2 space-y-4">
             <ContactCard
               icon={MessageCircle}
-              title="WhatsApp"
-              detail="Fastest response"
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              title="Chat on WhatsApp"
+              detail={`${CONTACT.phoneDisplay} — fastest response`}
+              href={whatsappLink(
+                "Hi Astar Technologies, I'd like to learn more about your services."
+              )}
               accent
             />
             <ContactCard
               icon={Mail}
               title="Email"
-              detail="hello@astartech.co.za"
-              href="mailto:hello@astartech.co.za"
+              detail={CONTACT.email}
+              href={`mailto:${CONTACT.email}`}
             />
             <ContactCard
               icon={Phone}
               title="Phone"
-              detail="+27 (0) 00 000 0000"
-              href="tel:+27000000000"
+              detail={CONTACT.phoneDisplay}
+              href={`tel:${CONTACT.phoneTel}`}
+            />
+            <ContactCard
+              icon={Linkedin}
+              title="LinkedIn"
+              detail="Connect with the founder"
+              href={CONTACT.linkedin}
             />
             <div className="rounded-2xl border border-border bg-surface/60 p-5">
               <div className="flex items-center gap-3">
@@ -102,10 +106,13 @@ function ContactPage() {
                 <p className="text-sm font-semibold text-foreground">Where we work</p>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">
-                Serving clients across South Africa and Lesotho.
+                Based in {CONTACT.location}.
               </p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                CIPC Registration: 2026/306686/07
+              <p className="mt-1 text-sm text-muted-foreground">
+                {CONTACT.serving}.
+              </p>
+              <p className="mt-3 text-xs text-muted-foreground">
+                Registered SA Company — CIPC: {CONTACT.cipc}
               </p>
             </div>
           </div>
