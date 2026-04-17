@@ -69,9 +69,9 @@ export function AstarMark({ className = "" }: { className?: string }) {
         strokeWidth="0.5"
       />
 
-      {/* Path edges of the "A" — shifted left to make room for star superscript */}
+      {/* Path edges of the "A" — yellow/gold to match the star */}
       <g
-        className="stroke-background"
+        stroke="url(#astar-gold)"
         strokeWidth="3.2"
         strokeLinecap="square"
         strokeLinejoin="miter"
@@ -86,7 +86,7 @@ export function AstarMark({ className = "" }: { className?: string }) {
       </g>
 
       {/* Graph nodes — small precise squares at the two feet */}
-      <g className="fill-background">
+      <g fill="url(#astar-gold)">
         <rect x="10.5" y="45.5" width="5" height="5" />
         <rect x="36.5" y="45.5" width="5" height="5" />
       </g>
