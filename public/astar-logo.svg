@@ -1,45 +1,101 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Astar Technologies">
   <title>Astar Technologies</title>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#15161A"/>
-      <stop offset="100%" stop-color="#0A0B0E"/>
+    <linearGradient id="gold-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#F5B400"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FCD34D"/>
-      <stop offset="55%" stop-color="#F5B400"/>
+    <linearGradient id="gold-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B45309"/>
+      <stop offset="100%" stop-color="#78350F"/>
+    </linearGradient>
+    <radialGradient id="nebula-1" cx="65%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#7C4A21" stop-opacity="0.85"/>
+      <stop offset="60%" stop-color="#3D2817" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1A0F08" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula-2" cx="25%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#5C3A1F" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1A0F08" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="seal-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1F1410"/>
+      <stop offset="100%" stop-color="#0A0604"/>
+    </radialGradient>
+    <radialGradient id="hero-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#F5B400" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#F5B400" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="crossbar-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FDE68A"/>
       <stop offset="100%" stop-color="#D97706"/>
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#FCD34D" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#FCD34D" stop-opacity="0"/>
-    </radialGradient>
+    <clipPath id="seal-clip">
+      <circle cx="256" cy="256" r="248"/>
+    </clipPath>
   </defs>
 
-  <!-- Circular seal -->
-  <circle cx="256" cy="256" r="248" fill="url(#bg)"/>
-  <circle cx="256" cy="256" r="216" fill="none" stroke="#FFFFFF" stroke-opacity="0.10" stroke-width="2"/>
+  <circle cx="256" cy="256" r="248" fill="url(#seal-bg)"/>
 
-  <!-- A graph edges (shifted left to make room for star superscript) -->
-  <g stroke="#FFFFFF" stroke-width="26" stroke-linecap="square" stroke-linejoin="miter" fill="none">
-    <line x1="104" y1="384" x2="208" y2="160"/>
-    <line x1="208" y1="160" x2="312" y2="384"/>
-  </g>
-  <!-- Crossbar — bolder + brighter so it reads on the dark seal -->
-  <line x1="144" y1="288" x2="272" y2="288" stroke="#FCD34D" stroke-width="32" stroke-linecap="square"/>
+  <g clip-path="url(#seal-clip)">
+    <rect x="0" y="0" width="512" height="512" fill="url(#nebula-1)"/>
+    <rect x="0" y="0" width="512" height="512" fill="url(#nebula-2)"/>
 
-  <!-- Foot nodes -->
-  <g fill="#FFFFFF">
-    <rect x="84" y="364" width="40" height="40"/>
-    <rect x="292" y="364" width="40" height="40"/>
+    <g fill="#FFFFFF">
+      <circle cx="64" cy="96" r="4" opacity="0.9"/>
+      <circle cx="112" cy="48" r="2.8" opacity="0.6"/>
+      <circle cx="176" cy="112" r="3.2" opacity="0.7"/>
+      <circle cx="240" cy="48" r="2.4" opacity="0.5"/>
+      <circle cx="432" cy="80" r="3.6" opacity="0.85"/>
+      <circle cx="464" cy="176" r="2.4" opacity="0.55"/>
+      <circle cx="48" cy="240" r="3.2" opacity="0.7"/>
+      <circle cx="80" cy="352" r="4" opacity="0.9"/>
+      <circle cx="32" cy="416" r="2.4" opacity="0.5"/>
+      <circle cx="160" cy="448" r="3.2" opacity="0.65"/>
+      <circle cx="272" cy="464" r="2.8" opacity="0.6"/>
+      <circle cx="384" cy="432" r="3.6" opacity="0.8"/>
+      <circle cx="448" cy="352" r="3.2" opacity="0.7"/>
+      <circle cx="480" cy="272" r="2.4" opacity="0.55"/>
+      <circle cx="320" cy="80" r="2.8" opacity="0.6"/>
+      <circle cx="368" cy="144" r="2.4" opacity="0.5"/>
+    </g>
+
+    <!-- Beveled "A" -->
+    <polygon points="116,392 216,168 228,176 128,400" fill="url(#gold-dark)"/>
+    <polygon points="104,384 204,160 216,168 116,392" fill="url(#gold-light)"/>
+    <polygon points="312,168 324,176 424,400 412,392" fill="url(#gold-dark)"/>
+    <polygon points="300,160 312,168 412,392 400,384" fill="url(#gold-light)"/>
+
+    <!-- Crossbar -->
+    <rect x="144" y="304" width="128" height="12" fill="url(#gold-dark)"/>
+    <rect x="144" y="280" width="128" height="24" fill="url(#crossbar-grad)"/>
+
+    <!-- Foot nodes (3D) -->
+    <rect x="80" y="368" width="40" height="40" fill="url(#gold-dark)"/>
+    <rect x="80" y="368" width="40" height="28" fill="url(#gold-light)"/>
+    <rect x="392" y="368" width="40" height="40" fill="url(#gold-dark)"/>
+    <rect x="392" y="368" width="40" height="28" fill="url(#gold-light)"/>
+
+    <!-- Hero halo + 3D nautical star at (384, 144), outer r=64, inner r=25.6 -->
+    <circle cx="384" cy="144" r="104" fill="url(#hero-halo)"/>
+    <g transform="translate(384 144)">
+      <polygon
+        points="0,-64 15.04,-20.72 60.88,-19.76 24.4,8 37.6,51.76 0,25.6 -37.6,51.76 -24.4,8 -60.88,-19.76 -15.04,-20.72"
+        fill="url(#gold-light)"/>
+      <g fill="url(#gold-dark)" opacity="0.95">
+        <polygon points="0,0 0,-64 15.04,-20.72"/>
+        <polygon points="0,0 60.88,-19.76 24.4,8"/>
+        <polygon points="0,0 37.6,51.76 0,25.6"/>
+        <polygon points="0,0 -24.4,8 -60.88,-19.76"/>
+        <polygon points="0,0 -15.04,-20.72 0,-64"/>
+      </g>
+      <polygon
+        points="0,-64 15.04,-20.72 60.88,-19.76 24.4,8 37.6,51.76 0,25.6 -37.6,51.76 -24.4,8 -60.88,-19.76 -15.04,-20.72"
+        fill="none" stroke="#78350F" stroke-width="2.4" stroke-linejoin="miter"/>
+      <circle r="4.8" fill="#FDE68A"/>
+    </g>
   </g>
 
-  <!-- A* star as superscript / exponent — top-right of A -->
-  <g transform="translate(368 160)">
-    <circle r="72" fill="url(#glow)"/>
-    <circle r="60" fill="none" stroke="url(#gold)" stroke-width="4" opacity="0.7"/>
-    <path d="M0 -68 L14.4 -14.4 L68 0 L14.4 14.4 L0 68 L-14.4 14.4 L-68 0 L-14.4 -14.4 Z"
-          fill="url(#gold)" stroke="#92400E" stroke-width="2" stroke-linejoin="miter"/>
-    <circle r="9" fill="#15161A"/>
-  </g>
+  <circle cx="256" cy="256" r="248" fill="none" stroke="#FCD34D" stroke-opacity="0.25" stroke-width="2"/>
 </svg>
