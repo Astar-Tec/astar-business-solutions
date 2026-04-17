@@ -81,9 +81,19 @@ export function AstarMark({ className = "" }: { className?: string }) {
         <line x1="13" y1="48" x2="26" y2="20" />
         {/* Right edge: apex node → foot node */}
         <line x1="26" y1="20" x2="39" y2="48" />
-        {/* Crossbar — heuristic line */}
-        <line x1="18.5" y1="37" x2="33.5" y2="37" />
       </g>
+
+      {/* Crossbar — heuristic line. Solid bright yellow + thicker so it
+          stays readable on the dark seal at small sizes. */}
+      <line
+        x1="18"
+        y1="36"
+        x2="34"
+        y2="36"
+        stroke="#FCD34D"
+        strokeWidth="4"
+        strokeLinecap="square"
+      />
 
       {/* Graph nodes — small precise squares at the two feet */}
       <g fill="url(#astar-gold)">
