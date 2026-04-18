@@ -11,6 +11,7 @@ import { Label } from "../components/ui/label";
 import { toast } from "sonner";
 import { Toaster } from "../components/ui/sonner";
 import { CONTACT, whatsappLink } from "../lib/contact";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Free consultation for African businesses ready to grow digitally.",
       },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: ContactPage,
@@ -41,7 +44,7 @@ const schema = z.object({
 function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
@@ -51,13 +54,29 @@ function ContactPage() {
       return;
     }
     setSubmitting(true);
-    const text = `New project inquiry\n\nName: ${result.data.name}\nEmail: ${result.data.email}\nCompany: ${result.data.company ?? "-"}\n\n${result.data.message}`;
-    setTimeout(() => {
+    try {
+      const { error } = await supabase.from("contact_leads").insert({
+        name: result.data.name,
+        email: result.data.email,
+        company: result.data.company ?? null,
+        message: result.data.message,
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent.slice(0, 500) : null,
+      });
+      if (error) throw error;
+
+      toast.success("Got it! We'll reply within one business day.");
+      const text = `New project inquiry\n\nName: ${result.data.name}\nEmail: ${result.data.email}\nCompany: ${result.data.company ?? "-"}\n\n${result.data.message}`;
       window.open(whatsappLink(text), "_blank");
-      toast.success("Opening WhatsApp to send your message…");
       form.reset();
+    } catch (err) {
+      console.error("Contact form submission failed:", err);
+      toast.error(
+        "Something went wrong saving your message. Please WhatsApp us directly."
+      );
+    } finally {
       setSubmitting(false);
-    }, 400);
+    }
   };
 
   return (
@@ -156,10 +175,10 @@ function ContactPage() {
               size="lg"
               className="mt-6 w-full bg-gradient-gold text-gold-foreground hover:opacity-90"
             >
-              {submitting ? "Sending…" : <>Send via WhatsApp <Send className="ml-1 h-4 w-4" /></>}
+              {submitting ? "Sending…" : <>Send my message <Send className="ml-1 h-4 w-4" /></>}
             </Button>
             <p className="mt-3 text-center text-xs text-muted-foreground">
-              By submitting, your message will open in WhatsApp for direct delivery.
+              We'll save your message securely and reply within one business day. WhatsApp will also open as a fast backup channel.
             </p>
           </motion.form>
         </div>

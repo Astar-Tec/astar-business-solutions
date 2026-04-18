@@ -17,6 +17,8 @@ export const Route = createFileRoute("/work")({
         property: "og:description",
         content: "Real businesses, real outcomes: AgroSense, Green Acorn, and more.",
       },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: WorkPage,
