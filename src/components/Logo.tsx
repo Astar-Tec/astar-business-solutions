@@ -38,8 +38,8 @@ export function AstarMark({ className = "" }: { className?: string }) {
   const star7 = (() => {
     const points: string[] = [];
     const N = 7;
-    const outer = 8;
-    const inner = 3.4;
+    const outer = 11;
+    const inner = 4.7;
     for (let i = 0; i < N * 2; i++) {
       const r = i % 2 === 0 ? outer : inner;
       const angle = (Math.PI / N) * i - Math.PI / 2; // start at top
@@ -53,8 +53,8 @@ export function AstarMark({ className = "" }: { className?: string }) {
   // Outer-point indices for shadow facets (every other point starting at 0).
   const shadowFacets = (() => {
     const N = 7;
-    const outer = 8;
-    const inner = 3.4;
+    const outer = 11;
+    const inner = 4.7;
     const pts: { x: number; y: number }[] = [];
     for (let i = 0; i < N * 2; i++) {
       const r = i % 2 === 0 ? outer : inner;
