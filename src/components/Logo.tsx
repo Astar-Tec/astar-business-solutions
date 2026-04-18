@@ -133,68 +133,67 @@ export function AstarMark({ className = "" }: { className?: string }) {
 
       <g clipPath="url(#seal-clip)">
         {/* 2. Hero star halo bloom (behind everything else gold) */}
-        <circle cx="48" cy="18" r="13" fill="url(#hero-halo)" />
+        <circle cx="44" cy="20" r="15" fill="url(#hero-halo)" />
 
-        {/* 3. 3D EXTRUDED "A" — drawn as proper depth.
-            Strategy: draw a darker "back" copy offset down-right (the extruded
-            depth), then draw the bright front face on top. This gives a true
-            isometric 3D feel rather than just a beveled outline. */}
+        {/* 3. 3D EXTRUDED "A" — smaller, lower-left so the star is hero.
+            Apex at (22, 30), feet at (12, 52) and (32, 52), crossbar mid-height.
+            Strategy: back/shadow layer offset down-right + front face on top. */}
 
-        {/* === BACK / SHADOW LAYER (offset 1.4 down, 1.4 right) === */}
-        <g transform="translate(1.4 1.4)" fill="url(#gold-dark)">
+        {/* === BACK / SHADOW LAYER (offset 1.2 down, 1.2 right) === */}
+        <g transform="translate(1.2 1.2)" fill="url(#gold-dark)">
           {/* Left stroke of A */}
-          <polygon points="13,48 25.5,20 28,20 16.5,48" />
+          <polygon points="12,52 21.4,30 23,30 14,52" />
           {/* Right stroke of A */}
-          <polygon points="36,20 38.5,20 51,48 48,48" />
+          <polygon points="21,30 22.6,30 32,52 30,52" />
           {/* Crossbar */}
-          <rect x="18" y="35" width="16" height="3.5" />
+          <rect x="15" y="42" width="14" height="2.6" />
           {/* Foot blocks */}
-          <rect x="10" y="46" width="5" height="5" />
-          <rect x="49" y="46" width="5" height="5" />
+          <rect x="9.5" y="50" width="4" height="4" />
+          <rect x="30.5" y="50" width="4" height="4" />
         </g>
 
         {/* === SIDE FACES (connecting front to back) === */}
         <g fill="url(#gold-dark)">
           {/* Right side of left stroke */}
-          <polygon points="14.5,48 25.5,20 26.9,21.4 15.9,49.4" />
+          <polygon points="13.4,52 21.4,30 22.6,31.2 14.6,53.2" />
           {/* Bottom of crossbar */}
-          <polygon points="18,38 34,38 35.4,39.4 19.4,39.4" />
+          <polygon points="15,44.6 29,44.6 30.2,45.8 16.2,45.8" />
           {/* Right side of right stroke */}
-          <polygon points="38.5,20 51,48 52.4,49.4 39.9,21.4" />
+          <polygon points="22.6,30 32,52 33.2,53.2 23.8,31.2" />
           {/* Foot side faces */}
-          <polygon points="15,46 15,51 16.4,52.4 16.4,47.4" />
-          <polygon points="15,51 10,51 11.4,52.4 16.4,52.4" />
-          <polygon points="54,46 54,51 55.4,52.4 55.4,47.4" />
-          <polygon points="54,51 49,51 50.4,52.4 55.4,52.4" />
+          <polygon points="13.5,50 13.5,54 14.7,55.2 14.7,51.2" />
+          <polygon points="13.5,54 9.5,54 10.7,55.2 14.7,55.2" />
+          <polygon points="34.5,50 34.5,54 35.7,55.2 35.7,51.2" />
+          <polygon points="34.5,54 30.5,54 31.7,55.2 35.7,55.2" />
         </g>
 
         {/* === FRONT FACE (bright gold) === */}
         {/* Left stroke */}
-        <polygon points="13,48 25.5,20 27,20 14.5,48" fill="url(#gold-light)" />
+        <polygon points="12,52 21.4,30 22.6,30 13.4,52" fill="url(#gold-light)" />
         {/* Right stroke */}
-        <polygon points="37,20 38.5,20 51,48 49.5,48" fill="url(#gold-light)" />
+        <polygon points="21.4,30 22.6,30 32,52 30.6,52" fill="url(#gold-light)" />
         {/* Crossbar */}
-        <rect x="18" y="35" width="16" height="3" fill="url(#crossbar-grad)" />
+        <rect x="15" y="42" width="14" height="2.6" fill="url(#crossbar-grad)" />
         {/* Foot blocks (front face) */}
-        <rect x="10" y="46" width="5" height="5" fill="url(#gold-light)" />
-        <rect x="49" y="46" width="5" height="5" fill="url(#gold-light)" />
+        <rect x="9.5" y="50" width="4" height="4" fill="url(#gold-light)" />
+        <rect x="30.5" y="50" width="4" height="4" fill="url(#gold-light)" />
 
         {/* Crisp dark outline on front strokes for definition */}
         <g
           fill="none"
           stroke="#78350F"
-          strokeWidth="0.35"
+          strokeWidth="0.3"
           strokeLinejoin="miter"
         >
-          <polygon points="13,48 25.5,20 27,20 14.5,48" />
-          <polygon points="37,20 38.5,20 51,48 49.5,48" />
-          <rect x="18" y="35" width="16" height="3" />
-          <rect x="10" y="46" width="5" height="5" />
-          <rect x="49" y="46" width="5" height="5" />
+          <polygon points="12,52 21.4,30 22.6,30 13.4,52" />
+          <polygon points="21.4,30 22.6,30 32,52 30.6,52" />
+          <rect x="15" y="42" width="14" height="2.6" />
+          <rect x="9.5" y="50" width="4" height="4" />
+          <rect x="30.5" y="50" width="4" height="4" />
         </g>
 
-        {/* 4. 7-POINT NAUTICAL STAR — center (48,18), outer r=8, inner r=3.4 */}
-        <g transform="translate(48 18)">
+        {/* 4. 7-POINT NAUTICAL STAR — center (44,20), outer r=11, inner r=4.7 */}
+        <g transform="translate(44 20)">
           {/* Base star fill — light gold */}
           <polygon points={star7} fill="url(#gold-light)" />
           {/* Shadow facets — every other half-point */}
