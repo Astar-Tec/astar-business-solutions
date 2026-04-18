@@ -20,6 +20,8 @@ export const Route = createFileRoute("/about")({
         content:
           "A South African software company building real systems for African businesses.",
       },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: AboutPage,

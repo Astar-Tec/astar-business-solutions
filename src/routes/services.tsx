@@ -18,6 +18,8 @@ export const Route = createFileRoute("/services")({
         content:
           "Productized digital solutions: websites, booking systems, AI automation and dashboards.",
       },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: ServicesPage,
