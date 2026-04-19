@@ -10,7 +10,7 @@ export function Hero() {
       {/* Decorative orbs */}
       <div className="pointer-events-none absolute -top-32 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-gold/10 blur-3xl" />
 
-      <div className="container-px relative mx-auto max-w-7xl pt-20 pb-24 md:pt-28 md:pb-36">
+      <div className="container-px relative mx-auto max-w-7xl pt-6 pb-16 md:pt-10 md:pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -22,19 +22,19 @@ export function Hero() {
             Smart digital solutions for African businesses
           </div>
 
-          <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          <h1 className="mt-4 text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
             We Help African Businesses{" "}
             <span className="text-gradient-gold">Get More Customers</span>{" "}
             Through Smart Digital Systems
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
             From bookings to automation to AI — we design and build the
             digital infrastructure your business needs to grow, run leaner,
             and reach more customers.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
               asChild
               size="lg"
@@ -61,7 +61,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="mx-auto mt-20 max-w-5xl"
+          className="mx-auto mt-12 max-w-5xl"
         >
           <div className="rounded-2xl border border-border bg-surface/60 p-6 backdrop-blur md:p-8">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
