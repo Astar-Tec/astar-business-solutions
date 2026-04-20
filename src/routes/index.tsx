@@ -9,16 +9,16 @@ import { CTA } from "../components/sections/CTA";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Astar Technologies — Digital Systems That Grow African Businesses" },
+      { title: "Astar Technologies — Digital Systems for Business Growth" },
       {
         name: "description",
         content:
-          "We help African businesses get more customers through smart websites, booking systems, automation and AI. Serving South Africa & Lesotho.",
+          "Get more customers, automate your business, and scale faster. Astar Technologies builds websites, booking systems, automation and AI for businesses across South Africa and Lesotho.",
       },
-      { property: "og:title", content: "Astar Technologies — Smart Digital Solutions" },
+      { property: "og:title", content: "Astar Technologies — Digital Systems for Business Growth" },
       {
         property: "og:description",
-        content: "Websites, booking systems, AI and automation built for African businesses.",
+        content: "Websites, booking systems, AI and automation built to grow your business.",
       },
       { property: "og:image", content: "/og-image.jpg" },
       { name: "twitter:image", content: "/og-image.jpg" },

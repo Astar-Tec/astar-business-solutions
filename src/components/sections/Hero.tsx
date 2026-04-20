@@ -19,19 +19,21 @@ export function Hero() {
         >
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
             <Sparkles className="h-3.5 w-3.5 text-gold" />
-            Smart digital solutions for African businesses
+            Astar Technologies (Pty) Ltd
           </div>
 
           <h1 className="mt-4 text-3xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
-            We Help African Businesses{" "}
-            <span className="text-gradient-gold">Get More Customers</span>{" "}
-            Through Smart Digital Systems
+            Get More Customers. <span className="text-gradient-gold">Automate Your Operations.</span>{" "}
+            Grow Your Business.
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            From bookings to automation to AI — we design and build the
-            digital infrastructure your business needs to grow, run leaner,
-            and reach more customers.
+            From high-converting websites to automated booking systems — we build the digital
+            systems your business needs to attract customers, run efficiently, and grow consistently.
+          </p>
+
+          <p className="mx-auto mt-5 max-w-2xl text-xs text-muted-foreground md:text-sm">
+            Trusted by real businesses — including a live hospitality system generating real bookings.
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -68,15 +70,15 @@ export function Hero() {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="inline-flex h-7 items-center rounded-full border border-gold/30 bg-gold/5 px-2.5 text-[10px] font-medium uppercase tracking-wider text-gold">
-                    Live Client Project
+                    Live Client Project — Not a Demo
                   </span>
-                  <span className="text-xs text-muted-foreground">Real Work. Real Clients.</span>
                 </div>
                 <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
                   Green Acorn Guest House
                 </h3>
                 <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-                  Not a demo — a live business powered by systems we built and manage.
+                  This is a real business with a live website and booking system we built and
+                  manage. This system is actively used by customers to view rooms and make bookings online.
                 </p>
               </div>
               <a

@@ -5,7 +5,7 @@ import { Section, SectionHeader } from "../Section";
 const cases = [
   {
     name: "Green Acorn Guest House",
-    tagline: "Live client project",
+    tagline: "Guest house website & booking system",
     badge: "Live Client Project",
     url: "http://www.greenacorn.co.za",
     urlLabel: "www.greenacorn.co.za",
@@ -14,26 +14,26 @@ const cases = [
     solution:
       "Modern website, integrated booking system, and a digital marketing foundation — fully owned by the client.",
     metrics: [
-      { value: "↑", label: "Online bookings" },
-      { value: "24/7", label: "Availability" },
+      { value: "Online", label: "Visibility improved" },
+      { value: "24/7", label: "Booking availability" },
       { value: "Live", label: "In production" },
     ],
     accent: "from-amber-500/20 to-amber-500/0",
   },
   {
     name: "AgroSense Platform",
-    tagline: "AI-powered agricultural intelligence",
-    badge: "Production System",
+    tagline: "Capability showcase — AI & offline-first systems",
+    badge: "Capability Showcase",
     url: "https://agrosense-client-kappa.vercel.app/",
     urlLabel: "agrosense-client-kappa.vercel.app",
     problem:
-      "Smallholder farmers lacked data-driven tools to optimize yields in their own language.",
+      "Smallholder farmers lacked accessible, data-driven tools to optimize yields in their own language.",
     solution:
-      "Production-ready AI system delivering crop guidance in local languages, including Sesotho — built offline-first for real users.",
+      "AI-powered platform built and deployed as a working system, demonstrating real-world capability in offline-first and local-language environments.",
     metrics: [
-      { value: "Live", label: "Production system" },
+      { value: "Live", label: "Deployed system" },
       { value: "Sesotho", label: "Local language AI" },
-      { value: "UNDP", label: "Finalist" },
+      { value: "UNDP", label: "Recognised" },
     ],
     accent: "from-emerald-500/20 to-emerald-500/0",
   },
@@ -60,7 +60,7 @@ export function CaseStudies() {
   return (
     <Section id="work" className="bg-surface/30">
       <SectionHeader
-        eyebrow="Proof, not promises"
+        eyebrow="Real Systems Running in Production"
         title={<>Real businesses. <span className="text-gradient-gold">Real outcomes.</span></>}
         description="Live, deployed systems — not slides. Click through to see them running in production."
       />
@@ -117,7 +117,7 @@ export function CaseStudies() {
                   rel="noreferrer"
                   className="mt-6 inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 px-4 py-2 text-xs font-medium text-foreground transition-colors hover:border-gold/40 hover:text-gold"
                 >
-                  Visit live site <ArrowUpRight className="h-3.5 w-3.5" />
+                  View Live Website <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </div>
 

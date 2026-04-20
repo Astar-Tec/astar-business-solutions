@@ -15,7 +15,7 @@ export function Logo({ className = "" }: { className?: string }) {
           <span className="font-light text-muted-foreground">TECHNOLOGIES</span>
         </span>
         <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.28em] text-muted-foreground/80">
-          Pty Ltd · Engineered Systems
+          Digital Systems for Business Growth
         </span>
       </div>
     </Link>

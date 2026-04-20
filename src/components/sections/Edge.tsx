@@ -21,7 +21,7 @@ const points = [
   {
     icon: Wrench,
     title: "Real deployment experience",
-    body: "From AgroSense in the field to AWS IoT in production — we ship systems that survive the real world.",
+    body: "From client websites in production to AWS IoT analytics platforms — we ship systems that survive the real world.",
   },
 ];
 

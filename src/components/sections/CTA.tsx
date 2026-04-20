@@ -18,12 +18,14 @@ export function CTA() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Let's build something that{" "}
-            <span className="text-gradient-gold">grows your business</span>
+            Ready to get more customers and{" "}
+            <span className="text-gradient-gold">run your business more efficiently?</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
-            Free 30-minute consultation. No jargon, no pressure — just a clear
-            conversation about what's possible.
+            If your business is still relying on manual processes or has no strong online presence, this is where that changes.
+          </p>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+            Free 30-minute consultation. If we can't clearly identify how to improve your business, we'll tell you — no obligation.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

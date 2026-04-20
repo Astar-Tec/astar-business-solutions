@@ -6,30 +6,34 @@ const services = [
   {
     icon: Globe,
     title: "Business Websites That Convert",
-    problem: "You're invisible online or losing customers to competitors.",
-    solution: "Fast, beautiful, conversion-focused websites built for results.",
-    outcome: "Turn visitors into paying customers.",
+    problem: "You're invisible online or losing customers to competitors with a stronger digital presence.",
+    solution: "Fast, professional, conversion-focused websites built to represent your business professionally and convert visitors into customers.",
+    outcome: "Increase bookings and customer inquiries from day one.",
+    proof: "Used by real businesses to generate inquiries and bookings.",
   },
   {
     icon: CalendarCheck,
     title: "Booking & Management Systems",
-    problem: "Manual bookings, double-bookings, lost time and revenue.",
-    solution: "Custom booking platforms with payments, calendars, and notifications.",
-    outcome: "Automate operations and free up your team.",
+    problem: "Manual bookings, double-bookings, and missed inquiries are costing you time and revenue.",
+    solution: "Custom booking platforms with payments, calendars, and automated notifications.",
+    outcome: "Save hours of manual admin every week and never miss a booking.",
+    proof: "Already implemented in a live hospitality environment.",
   },
   {
     icon: Bot,
     title: "AI & Automation Solutions",
-    problem: "Repetitive tasks eating into your team's productivity.",
-    solution: "Intelligent automation and AI assistants tailored to your workflow.",
-    outcome: "Reduce manual work and increase efficiency.",
+    problem: "Repetitive tasks are consuming your team's time and slowing your business down.",
+    solution: "Intelligent automation and AI tools built for your specific workflow and business processes.",
+    outcome: "Reduce manual work and free your team to focus on what matters.",
+    proof: "Built and deployed in real-world African use cases.",
   },
   {
     icon: BarChart3,
     title: "Data & Insights Dashboards",
-    problem: "Decisions made on guesswork instead of real numbers.",
-    solution: "Real-time dashboards that surface what matters most.",
-    outcome: "Make smarter decisions, faster.",
+    problem: "You're making decisions based on guesswork because your data is scattered or inaccessible.",
+    solution: "Real-time dashboards that show exactly what is working, what is not, and where to improve.",
+    outcome: "Make faster, data-backed decisions with confidence.",
+    proof: "Handling real data in production systems.",
   },
 ];
 
@@ -38,7 +42,7 @@ export function Services() {
     <Section id="services">
       <SectionHeader
         eyebrow="What we do"
-        title={<>Productized solutions for <span className="text-gradient-gold">real business problems</span></>}
+        title={<>Solutions built for <span className="text-gradient-gold">real business problems</span></>}
         description="We don't sell technology. We sell outcomes — backed by systems built to grow with your business."
       />
 
@@ -71,6 +75,7 @@ export function Services() {
                 <div className="rounded-lg border border-gold/20 bg-gold/5 p-3">
                   <span className="text-xs font-semibold uppercase tracking-wider text-gold">Outcome</span>
                   <p className="mt-1 font-medium text-foreground">{s.outcome}</p>
+                  <p className="mt-2 text-xs text-muted-foreground">{s.proof}</p>
                 </div>
               </div>
             </div>

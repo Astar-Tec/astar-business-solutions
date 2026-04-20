@@ -74,7 +74,7 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground">Terms</Link>
-            <span className="hidden md:inline">Built in Africa. For the world.</span>
+            <span className="hidden md:inline">Real systems. Real clients. Built and operating in the real world.</span>
           </div>
         </div>
       </div>
